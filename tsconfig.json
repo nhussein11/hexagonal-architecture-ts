@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "baseUrl": "./services",
+    "paths": {
+      "@dashboard-api-adapters/*": ["./dashboard-api/adapters/*"],
+      "@dashboard-api-ports/*": ["./dashboard-api/ports/*"],
+      "@dashboard-api-app/*": ["./dashboard-api/app/*"],
+      "@repository-adapters/*": ["./repository/adapters/*"],
+      "@repository-ports/*": ["./repository/ports/*"],
+      "@repository-app/*": ["./repository/app/*"],
+      "@control-plane-adapters/*": ["./control-plane/adapters/*"],
+      "@control-plane-ports/*": ["./control-plane/ports/*"],
+      "@control-plane-app/*": ["./control-plane/app/*"],
+      "@services/*": ["./services/*"]
+    },
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  }
+}
