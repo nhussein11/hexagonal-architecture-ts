@@ -2,13 +2,14 @@ import {
   AuthenticationDetails,
   ForControlAuthenticating,
   Permissions,
-} from "@dashboard-api-ports/drivens/for-control-authenticating";
+} from "../ports/drivens/for-control-authenticating";
 import {
   AuthenticatedUser,
   ForAuthenticating,
   User,
-} from "@dashboard-api-ports/drivers/for-authenticating";
-import { ForRepositoryQuerying } from "@dashboard-api-ports/drivens/for-repository-querying";
+} from "../ports/drivers/for-authenticating";
+import { ForRepositoryQuerying } from "../ports/drivens/for-repository-querying";
+import { user as RepoUser } from "@repository-app/schemas/user";
 
 export class DashboardApi implements ForAuthenticating {
   constructor(
@@ -23,7 +24,7 @@ export class DashboardApi implements ForAuthenticating {
     const permissions: Permissions =
       await this.controlAuthenticator.getPermissions(email, password);
 
-    const user: User = await this.repoQuerier.getUser(email);
+    const user: RepoUser = await this.repoQuerier.getUser(email);
 
     console.log("Login: ", user);
     return {
