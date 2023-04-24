@@ -33,4 +33,30 @@ describe("dashboard-api", () => {
 
     expect(result).toEqual(expectedResult);
   });
+
+  it.concurrent("should register", async () => {
+    const mockedParams = {
+      user: { name: "Lucas", email: "lucas@email.com" },
+      password: "password",
+    };
+
+    const expectedResult: AuthenticatedUser = {
+      id: "1",
+      name: "Lucas",
+      email: mockedParams.user.email,
+      token: "token",
+      refreshToken: "refreshToken",
+      permissions: {
+        admin: true,
+        user: true,
+      },
+    };
+
+    const result = await dashboardApiMock.register(
+      mockedParams.user,
+      mockedParams.password
+    );
+
+    expect(result).toEqual(expectedResult);
+  });
 });
