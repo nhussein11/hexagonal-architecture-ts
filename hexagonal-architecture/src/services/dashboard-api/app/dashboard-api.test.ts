@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { ControlAuthenticatorStub } from "../adapters/drivens/control-authenticator-stub-adapter";
 import { RepoQuerierStub } from "../adapters/drivens/repo-querier-stub-adapter";
 import { DashboardApi } from "./dashboard-api";
-import { AuthenticatedUser } from "./schemas/user";
+import { AuthenticatedUser, User } from "./schemas/user";
 
 describe("dashboard-api", () => {
   const controlAuthenticatorStub = new ControlAuthenticatorStub();
@@ -35,8 +35,12 @@ describe("dashboard-api", () => {
   });
 
   it.concurrent("should register", async () => {
+    const mockUser: User = {
+      name: "Lucas",
+      email: "lucas@email.com",
+    };
     const mockedParams = {
-      user: { name: "Lucas", email: "lucas@email.com" },
+      user: mockUser,
       password: "password",
     };
 
