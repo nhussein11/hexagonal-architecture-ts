@@ -1,4 +1,4 @@
-import { User } from "../../ports/drivers/for-authenticating";
+import { User } from "services/dashboard-api/app/schemas/user";
 import { User as RepositoryUser } from "../../../repository/app/schemas/user";
 
 export interface ForRepositoryQuerying {

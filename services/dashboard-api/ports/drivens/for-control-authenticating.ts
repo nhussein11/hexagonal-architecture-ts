@@ -1,12 +1,7 @@
-export interface AuthenticationDetails {
-  token: string;
-  refreshToken: string;
-}
-
-export interface Permissions {
-  admin: boolean;
-  user: boolean;
-}
+import {
+  AuthenticationDetails,
+  Permissions,
+} from "services/dashboard-api/app/schemas/auth";
 
 export interface ForControlAuthenticating {
   getAuthenticationDetails: (

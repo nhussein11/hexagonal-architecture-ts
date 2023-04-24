@@ -1,15 +1,9 @@
-import {
-  AuthenticatedUser,
-  ForAuthenticating,
-  User,
-} from "../ports/drivers/for-authenticating";
+import { ForAuthenticating } from "../ports/drivers/for-authenticating";
 import { ForRepositoryQuerying } from "../ports/drivens/for-repository-querying";
-import { user as RepoUser } from "@repository-app/schemas/user";
-import {
-  AuthenticationDetails,
-  ForControlAuthenticating,
-  Permissions,
-} from "@dashboard-app-port/drivers/for-authenticating";
+import { User as RepoUser } from "../../repository/app/schemas/user";
+import { ForControlAuthenticating } from "../ports/drivens/for-control-authenticating";
+import { AuthenticationDetails, Permissions } from "./schemas/auth";
+import { AuthenticatedUser, User } from "./schemas/user";
 
 export class DashboardApi implements ForAuthenticating {
   constructor(
@@ -25,12 +19,9 @@ export class DashboardApi implements ForAuthenticating {
 
     const user: RepoUser = await this.repoQuerier.getUser(email);
 
-    console.log("Login: ", user);
-    return {
-      ...user,
-      ...authenticationDetails,
-      ...permissions,
-    };
+    const result = { ...user, ...authenticationDetails, ...permissions };
+    console.log("Login: ", result);
+    return result;
   }
 
   async register(user: User, password: string): Promise<AuthenticatedUser> {
@@ -43,11 +34,8 @@ export class DashboardApi implements ForAuthenticating {
     const permissions: Permissions =
       await this.controlAuthenticator.getPermissions(email, password);
 
-    console.log("REGISTER: ", newUser);
-    return {
-      ...newUser,
-      ...authenticationDetails,
-      ...permissions,
-    };
+    const result = { ...newUser, ...authenticationDetails, ...permissions };
+    console.log("REGISTER: ", result);
+    return result;
   }
 }
