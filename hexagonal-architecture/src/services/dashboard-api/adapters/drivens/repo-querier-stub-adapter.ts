@@ -3,8 +3,8 @@ import { User as RepoUser } from "../../../repository/app/schemas/user";
 
 const userMock: RepoUser = {
   id: "1",
-  name: "John Doe",
-  email: "johndoe@email.com",
+  name: "Lucas",
+  email: "lucas@email.com",
 };
 
 export class RepoQuerierStub implements ForRepositoryQuerying {
