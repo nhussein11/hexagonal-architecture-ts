@@ -1,22 +1,21 @@
 import {
-  AuthenticationDetails,
-  ForControlAuthenticating,
-  Permissions,
-} from "../ports/drivens/for-control-authenticating";
-import {
   AuthenticatedUser,
   ForAuthenticating,
   User,
 } from "../ports/drivers/for-authenticating";
 import { ForRepositoryQuerying } from "../ports/drivens/for-repository-querying";
 import { user as RepoUser } from "@repository-app/schemas/user";
+import {
+  AuthenticationDetails,
+  ForControlAuthenticating,
+  Permissions,
+} from "@dashboard-app-port/drivers/for-authenticating";
 
 export class DashboardApi implements ForAuthenticating {
   constructor(
     private readonly controlAuthenticator: ForControlAuthenticating,
     private readonly repoQuerier: ForRepositoryQuerying
   ) {}
-
   async login(email: string, password: string): Promise<AuthenticatedUser> {
     const authenticationDetails: AuthenticationDetails =
       await this.controlAuthenticator.getAuthenticationDetails(email, password);
