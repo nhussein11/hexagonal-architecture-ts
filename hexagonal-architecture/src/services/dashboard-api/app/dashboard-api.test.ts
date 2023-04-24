@@ -20,8 +20,10 @@ describe("dashboard-api", () => {
       email: mockedParams.email,
       token: "token",
       refreshToken: "refreshToken",
-      admin: true,
-      user: true,
+      permissions: {
+        admin: true,
+        user: true,
+      },
     };
 
     const result = await dashboardApiMock.login(

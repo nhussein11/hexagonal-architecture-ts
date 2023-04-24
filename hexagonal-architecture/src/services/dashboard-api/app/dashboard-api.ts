@@ -19,7 +19,7 @@ export class DashboardApi implements ForAuthenticating {
 
     const user: RepoUser = await this.repoQuerier.getUser(email);
 
-    const result = { ...user, ...authenticationDetails, ...permissions };
+    const result = { ...user, ...authenticationDetails, permissions };
     console.log("Login: ", result);
     return result;
   }
@@ -34,7 +34,7 @@ export class DashboardApi implements ForAuthenticating {
     const permissions: Permissions =
       await this.controlAuthenticator.getPermissions(email, password);
 
-    const result = { ...newUser, ...authenticationDetails, ...permissions };
+    const result = { ...newUser, ...authenticationDetails, permissions };
     console.log("REGISTER: ", result);
     return result;
   }
