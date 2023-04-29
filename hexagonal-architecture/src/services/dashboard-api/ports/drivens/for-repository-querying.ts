@@ -1,7 +1,7 @@
-import { User } from "services/dashboard-api/app/schemas/user";
-import { User as RepositoryUser } from "../../../repository/app/schemas/user";
+import { RepoUser } from "../../../repository/app/schemas/user";
+import { User } from "../../app/schemas/user";
 
 export interface ForRepositoryQuerying {
-  getUser(email: string): Promise<RepositoryUser>;
-  createUser(user: User, password: string): Promise<RepositoryUser>;
+  getUser(email: string): Promise<RepoUser>;
+  createUser(user: User): Promise<RepoUser>;
 }
