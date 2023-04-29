@@ -11,7 +11,7 @@ export class DashboardApi implements ForAuthenticating {
     private readonly repoQuerier: ForRepositoryQuerying
   ) {}
   async login(email: string, password: string): Promise<AuthenticatedUser> {
-    const authenticationDetails: AuthenticationDetails =
+    const authDetails: AuthenticationDetails =
       await this.controlAuthenticator.getAuthenticationDetails(email, password);
 
     const permissions: Permissions =
@@ -19,14 +19,18 @@ export class DashboardApi implements ForAuthenticating {
 
     const user: ExternalUser = await this.repoQuerier.getUser(email);
 
-    return { ...user, ...authenticationDetails, permissions };
+    return {
+      ...user,
+      authDetails: { ...authDetails },
+      permissions: { ...permissions },
+    };
   }
 
   async register(user: User): Promise<AuthenticatedUser> {
     const newUser: ExternalUser = await this.repoQuerier.createUser(user);
     const { email } = newUser;
 
-    const authenticationDetails: AuthenticationDetails =
+    const authDetails: AuthenticationDetails =
       await this.controlAuthenticator.getAuthenticationDetails(
         email,
         user.password
@@ -35,6 +39,10 @@ export class DashboardApi implements ForAuthenticating {
     const permissions: Permissions =
       await this.controlAuthenticator.getPermissions(email, user.password);
 
-    return { ...newUser, ...authenticationDetails, permissions };
+    return {
+      ...newUser,
+      authDetails: { ...authDetails },
+      permissions: { ...permissions },
+    };
   }
 }

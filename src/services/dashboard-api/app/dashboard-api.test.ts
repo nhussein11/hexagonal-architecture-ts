@@ -18,8 +18,10 @@ describe("dashboard-api", () => {
       id: "1",
       name: "Lucas",
       email: mockedParams.email,
-      token: "token",
-      refreshToken: "refreshToken",
+      authDetails: {
+        token: "token",
+        refreshToken: "refreshToken",
+      },
       permissions: {
         admin: true,
         user: true,
@@ -45,8 +47,10 @@ describe("dashboard-api", () => {
       id: "1",
       name: "Lucas",
       email: mockUser.email,
-      token: "token",
-      refreshToken: "refreshToken",
+      authDetails: {
+        token: "token",
+        refreshToken: "refreshToken",
+      },
       permissions: {
         admin: true,
         user: true,
