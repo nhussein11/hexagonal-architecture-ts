@@ -1,4 +1,4 @@
-import { PermissionsSchema } from "./auth";
+import { AuthenticationDetailsSchema, PermissionsSchema } from "./auth";
 import { z } from "zod";
 
 export const RegisterSchema = z.object({
@@ -11,7 +11,7 @@ export const AuthenticatedUserSchema = z.object({
   id: z.string(),
   email: z.string().email(),
   name: z.string(),
-  // TODO: This should use AuthenticatedDetailsSchema, instead of duplicating token and refreshToken fields
+  authDetails: AuthenticationDetailsSchema,
   permissions: PermissionsSchema,
 });
 
