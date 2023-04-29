@@ -11,7 +11,9 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@types/cors": "^2.8.13",
     "cords": "^1.0.4",
+    "cors": "^2.8.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
