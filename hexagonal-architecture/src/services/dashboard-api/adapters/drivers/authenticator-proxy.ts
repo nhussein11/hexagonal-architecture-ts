@@ -1,8 +1,5 @@
-import {
-  AuthenticatedUser,
-  User,
-} from "services/dashboard-api/app/schemas/user";
 import { DashboardApi } from "../../app/dashboard-api";
+import { AuthenticatedUser, User } from "../../app/schemas/user";
 import { ForAuthenticating } from "../../ports/drivers/for-authenticating";
 
 export class AuthenticatorProxyAdapter implements ForAuthenticating {
@@ -11,7 +8,7 @@ export class AuthenticatorProxyAdapter implements ForAuthenticating {
   async login(email: string, password: string): Promise<AuthenticatedUser> {
     return this.dashboardApi.login(email, password);
   }
-  async register(user: User, password: string): Promise<AuthenticatedUser> {
-    return this.dashboardApi.register(user, password);
+  async register(user: User): Promise<AuthenticatedUser> {
+    return this.dashboardApi.register(user);
   }
 }
