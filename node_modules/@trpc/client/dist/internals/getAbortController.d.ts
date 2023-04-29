@@ -1,0 +1,4 @@
+import { Maybe } from '@trpc/server';
+import { AbortControllerEsque } from './types';
+export declare function getAbortController(customAbortControllerImpl: Maybe<AbortControllerEsque>): AbortControllerEsque | null;
+//# sourceMappingURL=getAbortController.d.ts.map
