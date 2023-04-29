@@ -23,6 +23,10 @@ const compositionMock = () => {
 export const { authenticatorProxyAdapter } = compositionMock();
 
 console.log("Running Composition root...");
-const registerMock = { name: "john", email: "john@mal.com" };
+const registerMock = {
+  name: "john",
+  email: "john@mal.com",
+  password: "1234",
+};
 authenticatorProxyAdapter.login("john@gmail.com", "1234");
-authenticatorProxyAdapter.register(registerMock, "1234");
+authenticatorProxyAdapter.register(registerMock);
