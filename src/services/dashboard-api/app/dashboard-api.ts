@@ -11,7 +11,7 @@ export class DashboardApi implements ForAuthenticating {
     private readonly repoQuerier: ForRepositoryQuerying
   ) {}
   async login(email: string, password: string): Promise<AuthenticatedUser> {
-    const authDetails: AuthenticationDetails =
+    const authenticationDetails: AuthenticationDetails =
       await this.controlAuthenticator.getAuthenticationDetails(email, password);
 
     const permissions: Permissions =
@@ -21,7 +21,7 @@ export class DashboardApi implements ForAuthenticating {
 
     return {
       ...user,
-      authDetails: { ...authDetails },
+      authDetails: { ...authenticationDetails },
       permissions: { ...permissions },
     };
   }
