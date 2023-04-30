@@ -1,2 +1,0 @@
-export declare function getClientArgs<TPathAndInput extends unknown[], TOptions>(pathAndInput: TPathAndInput, opts: TOptions): readonly [unknown, unknown, any];
-//# sourceMappingURL=getClientArgs.d.ts.map
