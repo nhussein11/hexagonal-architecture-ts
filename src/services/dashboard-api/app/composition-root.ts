@@ -5,6 +5,11 @@ import { authTRPCAdapter } from "../adapters/drivers/auth-trpc-adapter";
 import { AuthenticatorProxyAdapter } from "../adapters/drivers/authenticator-proxy";
 import { DashboardApi } from "./dashboard-api";
 
+// TODO: in the future, this could apply the strategy pattern
+// interface AuthStrategy {
+//   authenticate(): void;
+// }
+
 const compositionMock = () => {
   const controlAuthenticatorStub = new ControlAuthenticatorStub();
   const repoQuerierStub = new RepoQuerierStub();
@@ -13,6 +18,7 @@ const compositionMock = () => {
     repoQuerierStub
   );
 
+  // TODO: in the future, this could apply the strategy pattern
   const authenticatorProxyAdapter = new AuthenticatorProxyAdapter(
     dashboardApiMock
   );
@@ -32,6 +38,7 @@ export const localTRPCCompose = () => {
     repoQuerierStub
   );
 
+  // TODO: in the future, this could apply the strategy pattern
   const t = initTRPC.create();
 
   const authTRPCAdapterRouter = authTRPCAdapter(dashboardApiMock, t);
