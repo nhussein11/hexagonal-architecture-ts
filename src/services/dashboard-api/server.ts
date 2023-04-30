@@ -2,9 +2,7 @@ import * as trpcExpress from "@trpc/server/adapters/express";
 import cors from "cors";
 import express from "express";
 import { localTRPCCompose } from "./app/composition-root";
-
-const PORT = 4000;
-const URL = `http://localhost:${PORT}`;
+import { PORT, URL } from "../../vite-env.d";
 
 // created for each request
 const createContext = () => ({});
