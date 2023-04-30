@@ -19,7 +19,7 @@ const userMock = {
   password: "123456",
 };
 
-const { email: emailMock, password } = userMock;
+const { email: emailMock } = userMock;
 
 userManagerProxy.getUser(emailMock);
-userManagerProxy.createUser(userMock, password);
+userManagerProxy.createUser(userMock);
