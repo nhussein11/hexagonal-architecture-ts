@@ -10,21 +10,18 @@ const Login = () => {
   const { data, mutate } = trpc.login.useMutation();
   const { register, handleSubmit } = useForm<LoginForm>();
 
-  const onSubmit = handleSubmit((data) => {
-    const { email, password } = data;
+  const onSubmit = ({ email, password }: LoginForm) => {
     mutate({ email, password });
-  });
+  };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       {JSON.stringify(data)}
       <label>Email:</label> <br />
       <input {...register("email")} />
       <label>Password:</label> <br />
       <input {...register("password")} />
-      <button type="button" onClick={() => onSubmit()}>
-        Login
-      </button>
+      <button type="submit">Login</button>
     </form>
   );
 };
