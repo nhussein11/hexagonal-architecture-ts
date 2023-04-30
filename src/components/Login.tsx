@@ -1,41 +1,31 @@
-import { useState } from "react";
 import { trpc } from "../trpc";
+import { useForm } from "react-hook-form";
+
+type LoginForm = {
+  email: string;
+  password: string;
+};
 
 const Login = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const { data, mutate } = trpc.login.useMutation();
+  const { register, handleSubmit } = useForm<LoginForm>();
 
-  const { mutate } = trpc.login.useMutation();
-
-  const submitHandler = (e: any): void => {
-    e.preventDefault();
-    console.log(email, password);
+  const onSubmit = handleSubmit((data) => {
+    const { email, password } = data;
     mutate({ email, password });
-  };
+  });
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form>
-        <label>Email: </label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label>Password: </label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        <button type="submit" onClick={submitHandler}>
-          {" "}
-          Login{" "}
-        </button>
-      </form>
-    </div>
+    <form onSubmit={onSubmit}>
+      {JSON.stringify(data)}
+      <label>Email:</label> <br />
+      <input {...register("email")} />
+      <label>Password:</label> <br />
+      <input {...register("password")} />
+      <button type="button" onClick={() => onSubmit()}>
+        Login
+      </button>
+    </form>
   );
 };
 

@@ -1,49 +1,34 @@
-import { useState } from "react";
 import { trpc } from "../trpc";
+import { useForm } from "react-hook-form";
+
+type RegisterForm = {
+  email: string;
+  password: string;
+  name: string;
+};
 
 const Register = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [name, setName] = useState<string>("");
-
   const { data, mutate } = trpc.register.useMutation();
+  const { register, handleSubmit } = useForm<RegisterForm>();
 
-  const submitHandler = (e: any): void => {
-    e.preventDefault();
-    console.log(email, password, name);
+  const onSubmit = handleSubmit((data) => {
+    const { email, password, name } = data;
     mutate({ email, password, name });
-  };
+  });
 
   return (
-    <div>
-      <h1>Register</h1>
+    <form onSubmit={onSubmit}>
       {JSON.stringify(data)}
-      <form>
-        <label>Email: </label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label>Password: </label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <label>Name: </label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-
-        <button type="submit" onClick={submitHandler}>
-          {" "}
-          Register{" "}
-        </button>
-      </form>
-    </div>
+      <label>Email:</label> <br />
+      <input {...register("email")} />
+      <label>Password:</label> <br />
+      <input {...register("password")} />
+      <label>Name:</label> <br />
+      <input {...register("name")} />
+      <button type="button" onClick={() => onSubmit()}>
+        Register
+      </button>
+    </form>
   );
 };
 
