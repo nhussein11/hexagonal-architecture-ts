@@ -40,3 +40,5 @@ export const localTRPCCompose = () => {
 
   return { appRouter };
 };
+
+export const { appRouter } = localTRPCCompose();
