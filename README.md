@@ -20,4 +20,4 @@ Hexagonal Architecture is composed of three main components
 
 The use of these three components - Core Domain, Ports, and Adapters - helps to create a modular and maintainable system that can evolve over time, by separating concerns and dependencies, and by focusing on the core business logic of the application.
 
-![Hexagonal Architecture Components] (https://miro.medium.com/v2/resize:fit:1400/1*LF3qzk0dgk9kfnplYYKv4Q.png)
+![Hexagonal Architecture Components](https://miro.medium.com/v2/resize:fit:1400/1*LF3qzk0dgk9kfnplYYKv4Q.png)
