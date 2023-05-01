@@ -8,6 +8,8 @@ Hexagonal Architecture, also referred to as Ports and Adapters Architecture or P
 
 Hexagonal Architecture is a great choice for applications that are expected to evolve over time. It is also a good choice for applications that are expected to have multiple interfaces or infrastructure components.
 
+This pattern offers several advantages for software development, including flexibility and adaptability, testability, modularity and maintainability, and agility and time to market. This architectural approach separates the core business logic of an application from its external interfaces and infrastructure components, which enables developers to modify or replace these components without affecting the core business logic. This makes it easy to create a flexible and adaptable system that can evolve over time.
+
 # Components of Hexagonal Architecture
 
 Hexagonal Architecture is composed of three main components:
