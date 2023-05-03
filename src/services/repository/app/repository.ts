@@ -7,7 +7,7 @@ export class Repository implements ForManagingUser {
   constructor(private readonly logger: ForMonitoring) {}
 
   async getUser(email: string): Promise<ExternalUser> {
-    const user = this.userList.find((user) => user.email === email);
+    const user = this.userList.find((user: RepoUser) => user.email === email);
     if (!user) {
       this.logger.log("Get User", "User not found");
       throw new Error("User not found");
