@@ -5,6 +5,7 @@ import {
   RegisterSchema,
 } from "../../app/schemas/user";
 
+// TODO: implement ForAuthenticating
 export function authTRPCAdapter(
   dashboardApi: DashboardApi,
   trpc: ReturnType<typeof initTRPC.create>
