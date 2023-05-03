@@ -1,9 +1,9 @@
-import { ForAuthenticating } from "../ports/drivers/for-authenticating";
-import { ForRepositoryQuerying } from "../ports/drivens/for-repository-querying";
+import { ExternalUser } from "../../repository/app/schemas/user";
 import { ForControlAuthenticating } from "../ports/drivens/for-control-authenticating";
+import { ForRepositoryQuerying } from "../ports/drivens/for-repository-querying";
+import { ForAuthenticating } from "../ports/drivers/for-authenticating";
 import { AuthenticationDetails, Permissions } from "./schemas/auth";
 import { AuthenticatedUser, User } from "./schemas/user";
-import { ExternalUser } from "../../repository/app/schemas/user";
 
 export class DashboardApi implements ForAuthenticating {
   constructor(
