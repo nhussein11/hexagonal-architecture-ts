@@ -3,22 +3,34 @@ import { DashboardApi } from "../../app/dashboard-api";
 import {
   AuthenticatedUserSchema,
   RegisterSchema,
+  User,
 } from "../../app/schemas/user";
+import { ForAuthenticating } from "../../ports/drivers/for-authenticating";
 
-// TODO: implement ForAuthenticating
-export function authTRPCAdapter(
-  dashboardApi: DashboardApi,
-  trpc: ReturnType<typeof initTRPC.create>
-) {
-  return trpc.router({
-    login: trpc.procedure
-      .input(RegisterSchema.pick({ email: true, password: true }))
-      .output(AuthenticatedUserSchema)
-      .mutation(({ input }) => dashboardApi.login(input.email, input.password)),
+export class AuthTRPCAdapter implements ForAuthenticating {
+  constructor(
+    private readonly dashboardApi: DashboardApi,
+    private readonly trpc: ReturnType<typeof initTRPC.create>
+  ) {}
 
-    register: trpc.procedure
-      .input(RegisterSchema)
-      .output(AuthenticatedUserSchema)
-      .mutation(({ input }) => dashboardApi.register(input)),
-  });
+  async login(email: string, password: string) {
+    return await this.dashboardApi.login(email, password);
+  }
+
+  async register(user: User) {
+    return await this.dashboardApi.register(user);
+  }
+
+  createRouter() {
+    return this.trpc.router({
+      login: this.trpc.procedure
+        .input(RegisterSchema.pick({ email: true, password: true }))
+        .output(AuthenticatedUserSchema)
+        .mutation(({ input }) => this.login(input.email, input.password)),
+      register: this.trpc.procedure
+        .input(RegisterSchema)
+        .output(AuthenticatedUserSchema)
+        .mutation(({ input }) => this.register(input)),
+    });
+  }
 }
