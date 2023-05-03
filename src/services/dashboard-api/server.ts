@@ -1,8 +1,8 @@
 import * as trpcExpress from "@trpc/server/adapters/express";
 import cors from "cors";
 import express from "express";
-import { TRPCCompose } from "./app/composition-root";
 import { PORT, TRPC_ENDPOINT } from "../../vite-env.d";
+import { TRPCCompose } from "./app/composition-root";
 
 // created for each request
 const createContext = () => ({});
