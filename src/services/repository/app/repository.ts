@@ -6,11 +6,15 @@ export class Repository implements ForManagingUser {
   private userList: RepoUser[] = [];
   constructor(private readonly logger: ForMonitoringRepositoryDetails) {}
 
-  async getUser(email: string): Promise<ExternalUser> {
+  async getUser(email: string, password: string): Promise<ExternalUser> {
     const user = this.userList.find((user: RepoUser) => user.email === email);
     if (!user) {
       this.logger.log("Get User", "User not found");
       throw new Error("User not found");
+    }
+    if (user.password !== password) {
+      this.logger.log("Get User", "Password is incorrect");
+      throw new Error("Password is incorrect");
     }
 
     return user;
