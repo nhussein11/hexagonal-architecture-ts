@@ -1,9 +1,9 @@
-import { LoggerStubAdapter } from "../adapters/drivens/logger-stub-adapter";
+import { LoggerRepositoryAdapater } from "../adapters/drivens/logger-adapter";
 import { UserManagerProxy } from "../adapters/drivers/user-manager-proxy";
 import { Repository } from "./repository";
 
 export const compositionMock = () => {
-  const monitorStub = new LoggerStubAdapter();
+  const monitorStub = new LoggerRepositoryAdapater();
   const repositoryMock = new Repository(monitorStub);
 
   const userManagerProxy = new UserManagerProxy(repositoryMock);
