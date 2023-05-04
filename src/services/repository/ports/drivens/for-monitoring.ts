@@ -1,3 +1,3 @@
-export interface ForMonitoring {
+export interface ForMonitoringRepositoryDetails {
   log(event: string, message: string): void;
 }

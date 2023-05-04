@@ -12,6 +12,7 @@ export class Repository implements ForManagingUser {
       this.logger.log("Get User", "User not found");
       throw new Error("User not found");
     }
+
     return user;
   }
 
