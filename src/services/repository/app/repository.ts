@@ -1,10 +1,10 @@
-import { ForMonitoring } from "../ports/drivens/for-monitoring";
+import { ForMonitoringRepositoryDetails } from "../ports/drivens/for-monitoring";
 import { ForManagingUser } from "../ports/drivers/for-managing-user";
 import { ExternalUser, RepoUser, User } from "./schemas/user";
 
 export class Repository implements ForManagingUser {
   private userList: RepoUser[] = [];
-  constructor(private readonly logger: ForMonitoring) {}
+  constructor(private readonly logger: ForMonitoringRepositoryDetails) {}
 
   async getUser(email: string): Promise<ExternalUser> {
     const user = this.userList.find((user: RepoUser) => user.email === email);

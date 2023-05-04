@@ -1,10 +1,10 @@
 import { describe, it, expect } from "vitest";
 import { UserManagerProxy } from "../adapters/drivers/user-manager-proxy";
 import { Repository } from "./repository";
-import { LoggerStubAdapter } from "../adapters/drivens/logger-stub-adapter";
+import { LoggerRepositoryAdapater } from "../adapters/drivens/logger-adapter";
 
 describe("repository", () => {
-  const logger = new LoggerStubAdapter();
+  const logger = new LoggerRepositoryAdapater();
   const repository = new Repository(logger);
 
   const userManagerProxy = new UserManagerProxy(repository);
