@@ -10,6 +10,7 @@ describe("repository", () => {
   const userManagerProxy = new UserManagerProxy(repository);
   it.concurrent("should not get user", async () => {
     const mailMock = "lucas@email.com";
+    const passwordMock = "123456";
 
     const expectedResult = {
       id: "1",
@@ -18,7 +19,7 @@ describe("repository", () => {
     };
     let result;
     try {
-      result = await userManagerProxy.getUser(mailMock);
+      result = await userManagerProxy.getUser(mailMock, passwordMock);
     } catch (error) {}
 
     expect(result).not.toEqual(expectedResult);
@@ -60,17 +61,17 @@ describe("repository", () => {
   });
   it.concurrent("should get user", async () => {
     const mailMock = "lucas@email.com";
-
+    const passwordMock = "123456";
     const expectedResult = {
       id: "1",
       name: "lucas",
       email: mailMock,
-      password: "123456",
+      password: passwordMock,
     };
 
     let result;
     try {
-      result = await userManagerProxy.getUser(mailMock);
+      result = await userManagerProxy.getUser(mailMock, passwordMock);
     } catch (error) {}
 
     expect(result).toEqual(expectedResult);
