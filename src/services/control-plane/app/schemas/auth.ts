@@ -7,3 +7,7 @@ export interface Permission {
   admin: boolean;
   user: boolean;
 }
+
+export interface userWithPermission {
+  [userId: string]: Permission;
+}

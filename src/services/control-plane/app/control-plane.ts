@@ -4,7 +4,7 @@ import { ForMonitoringAuthenticationDetails } from "../ports/drivens/for-monitor
 import { ForManagingAuthentication } from "../ports/drivers/for-authenticating";
 import { AuthenticationDetails, Permission } from "./schemas/auth";
 import { BaseToken, Token } from "./schemas/token";
-import { userWithPermission } from "./schemas/userWithPermissions";
+import { userWithPermission } from "./schemas/auth";
 
 const userWithPermissionMock: userWithPermission = {
   "123": {
