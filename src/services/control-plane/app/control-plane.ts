@@ -1,10 +1,13 @@
-import jwt from "jsonwebtoken";
 import { ForRepositoryQuerying } from "../../dashboard-api/ports/drivens/for-repository-querying";
 import { ForMonitoringAuthenticationDetails } from "../ports/drivens/for-monitoring";
 import { ForManagingAuthentication } from "../ports/drivers/for-authenticating";
-import { AuthenticationDetails, Permission } from "./schemas/auth";
+import {
+  AuthenticationDetails,
+  Permission,
+  userWithPermission,
+} from "./schemas/auth";
+import jwt from "jsonwebtoken";
 import { BaseToken, Token } from "./schemas/token";
-import { userWithPermission } from "./schemas/auth";
 
 const userWithPermissionMock: userWithPermission = {
   "123": {
@@ -76,7 +79,6 @@ export class ControlPlane implements ForManagingAuthentication {
   async getPermission(email: string, password: string): Promise<Permission> {
     this.logger.log("Get Permission", "Getting user");
     const user = await this.repository.getUser(email, password);
-
     if (!user) {
       this.logger.log("Get Permission", "User not found");
       throw new Error("User not found");
@@ -89,7 +91,7 @@ export class ControlPlane implements ForManagingAuthentication {
     }
 
     this.logger.log("Get Permission", "Returning permissions");
-    return Promise.resolve(this.userWithPermission[user.id]);
+    return this.userWithPermission[user.id];
   }
 
   generateJWTToken({ payload, secretKey, period }: Token): string {
