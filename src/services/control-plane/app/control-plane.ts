@@ -27,7 +27,7 @@ const userWithPermissionMock: userWithPermission = {
 export class ControlPlane implements ForManagingAuthentication {
   private readonly secretKey = "mySecretKey";
   private readonly tokenPeriod = "1h";
-  private readonly refreshTokenPeriod = "1h";
+  private readonly refreshTokenPeriod = "4h";
   private readonly userWithPermission: userWithPermission =
     userWithPermissionMock;
 
