@@ -11,13 +11,13 @@ export class DashboardApi implements ForAuthenticating {
     private readonly repoQuerier: ForRepositoryQuerying
   ) {}
   async login(email: string, password: string): Promise<AuthenticatedUser> {
+    const user: ExternalUser = await this.repoQuerier.getUser(email, password);
+
     const authenticationDetails: AuthenticationDetails =
       await this.controlAuthenticator.getAuthenticationDetails(email, password);
 
     const permissions: Permissions =
       await this.controlAuthenticator.getPermissions(email, password);
-
-    const user: ExternalUser = await this.repoQuerier.getUser(email);
 
     return {
       ...user,
