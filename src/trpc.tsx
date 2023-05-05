@@ -13,11 +13,11 @@ export const trpcClient = trpc.createClient({
   links: [httpLink({ url: TRPC_ENDPOINT })],
 });
 
-interface Props {
+type TRPCProviderProps = {
   children: React.ReactNode;
-}
+};
 
-const TRPCProvider = ({ children }: Props) => {
+const TRPCProvider = ({ children }: TRPCProviderProps) => {
   const [trpcClientInstance] = useState(() => trpcClient);
 
   return (
