@@ -95,4 +95,22 @@ describe("control-plane", () => {
       }
     }
   );
+  it.concurrent(
+    "should not be able to get permission details for user without permission",
+    async () => {
+      const mockedParams = {
+        // not registered email
+        email: "mikedoe@mail.com",
+        password: "123456",
+      };
+
+      const { email, password } = mockedParams;
+
+      try {
+        await controlPlane.getPermission(email, password);
+      } catch (error) {
+        expect(error).toEqual(new Error("User has not permissions defined"));
+      }
+    }
+  );
 });
