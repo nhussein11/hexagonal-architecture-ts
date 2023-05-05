@@ -6,12 +6,11 @@ import { TRPC_ENDPOINT } from "./vite-env.d";
 
 const { appRouter } = TRPCCompose();
 export const trpc = createTRPCReact<typeof appRouter>();
-
-export const queryClient = new QueryClient();
-
 export const trpcClient = trpc.createClient({
   links: [httpLink({ url: TRPC_ENDPOINT })],
 });
+
+export const queryClient = new QueryClient();
 
 type TRPCProviderProps = {
   children: React.ReactNode;
