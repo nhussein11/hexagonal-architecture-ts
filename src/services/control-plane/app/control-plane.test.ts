@@ -59,4 +59,22 @@ describe("control-plane", () => {
       }
     }
   );
+  it.concurrent(
+    "should be able to get permission details for user",
+    async () => {
+      const mockedParams = {
+        email: "johndoe@mail.com",
+        password: "123456",
+      };
+      const { email, password } = mockedParams;
+
+      const expectedResult = {
+        admin: true,
+        user: true,
+      };
+
+      const result = await controlPlane.getPermission(email, password);
+      expect(result).toEqual(expectedResult);
+    }
+  );
 });
