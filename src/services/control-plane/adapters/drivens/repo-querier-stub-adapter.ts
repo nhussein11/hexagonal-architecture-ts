@@ -5,11 +5,14 @@ import { ForRepositoryQuerying } from "../../ports/drivens/for-repository-queryi
 const userMock = {
   id: "123",
   name: "John Doe",
-  email: "johndoe@email.com",
+  email: "johndoe@mail.com",
 };
 
 export class RepoQuerierStub implements ForRepositoryQuerying {
-  getUser(_email: string): Promise<FromRepositoryUser> {
+  getUser(email: string): Promise<FromRepositoryUser | undefined> {
+    if (email !== userMock.email) {
+      return Promise.resolve(undefined);
+    }
     return Promise.resolve(userMock);
   }
 
