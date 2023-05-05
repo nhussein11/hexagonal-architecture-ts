@@ -1,14 +1,20 @@
-export interface BaseToken {
-  payload: Payload;
-  secretKey: string;
-}
+import z from "zod";
 
-export interface Token extends BaseToken {
-  period: string;
-}
+export const payloadSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  email: z.string().email(),
+});
 
-export interface Payload {
-  id: string;
-  name: string;
-  email: string;
-}
+export const baseTokenSchema = z.object({
+  payload: payloadSchema,
+  secretKey: z.string(),
+});
+
+export const tokenSchema = baseTokenSchema.extend({
+  period: z.number().positive(),
+});
+
+export type Payload = z.infer<typeof payloadSchema>;
+export type BaseToken = z.infer<typeof baseTokenSchema>;
+export type Token = z.infer<typeof tokenSchema>;

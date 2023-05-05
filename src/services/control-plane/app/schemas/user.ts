@@ -1,9 +1,15 @@
-export interface User {
-  name: string;
-  email: string;
-  password: string;
-}
+import z from "zod";
 
-export interface FromRepositoryUser extends Omit<User, "password"> {
-  id: string;
-}
+export const userSchema = z.object({
+  name: z.string(),
+  email: z.string().email(),
+  password: z.string(),
+});
+
+export type User = z.infer<typeof userSchema>;
+
+export const fromRepositoryUserSchema = userSchema.extend({
+  id: z.string(),
+});
+
+export type FromRepositoryUser = z.infer<typeof fromRepositoryUserSchema>;
