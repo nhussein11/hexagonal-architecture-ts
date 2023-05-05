@@ -12,7 +12,7 @@ export const baseTokenSchema = z.object({
 });
 
 export const tokenSchema = baseTokenSchema.extend({
-  period: z.number().positive(),
+  period: z.string(),
 });
 
 export type Payload = z.infer<typeof payloadSchema>;

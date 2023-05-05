@@ -8,8 +8,12 @@ export const userSchema = z.object({
 
 export type User = z.infer<typeof userSchema>;
 
-export const fromRepositoryUserSchema = userSchema.extend({
-  id: z.string(),
-});
+export const fromRepositoryUserSchema = userSchema
+  .omit({
+    password: true,
+  })
+  .extend({
+    id: z.string(),
+  });
 
 export type FromRepositoryUser = z.infer<typeof fromRepositoryUserSchema>;
