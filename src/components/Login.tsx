@@ -18,23 +18,25 @@ const Login = () => {
 
   return (
     <>
-      <h2 className="text-2xl text-center">Login</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {JSON.stringify(data)}
-        <Input<LoginForm>
-          type="text"
-          placeholder="Email: "
-          registerItem="email"
-          register={register}
-        />
-        <Input<LoginForm>
-          type="password"
-          placeholder="Password: "
-          registerItem="password"
-          register={register}
-        />
-        <Button text="Login" type="submit" />
-      </form>
+      <section className="text-gray-600 body-font">
+        <h2 className="text-2xl text-center">Login</h2>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {JSON.stringify(data)}
+          <Input<LoginForm>
+            type="text"
+            placeholder="Email: "
+            registerItem="email"
+            register={register}
+          />
+          <Input<LoginForm>
+            type="password"
+            placeholder="Password: "
+            registerItem="password"
+            register={register}
+          />
+          <Button text="Login" type="submit" />
+        </form>
+      </section>
     </>
   );
 };

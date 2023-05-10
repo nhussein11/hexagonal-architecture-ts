@@ -18,29 +18,31 @@ const Register = () => {
 
   return (
     <>
-      <h2 className="text-2xl text-center">Register</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {JSON.stringify(data)}
-        <Input<RegisterForm>
-          type="text"
-          placeholder="Email: "
-          registerItem="email"
-          register={register}
-        />
-        <Input<RegisterForm>
-          type="password"
-          placeholder="Password: "
-          registerItem="password"
-          register={register}
-        />
-        <Input<RegisterForm>
-          type="text"
-          placeholder="Name: "
-          registerItem="name"
-          register={register}
-        />
-        <Button text="Register" type="submit" />
-      </form>
+      <section className="text-gray-600 body-font">
+        <h2 className="text-2xl text-center">Register</h2>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {JSON.stringify(data)}
+          <Input<RegisterForm>
+            type="text"
+            placeholder="Email: "
+            registerItem="email"
+            register={register}
+          />
+          <Input<RegisterForm>
+            type="password"
+            placeholder="Password: "
+            registerItem="password"
+            register={register}
+          />
+          <Input<RegisterForm>
+            type="text"
+            placeholder="Name: "
+            registerItem="name"
+            register={register}
+          />
+          <Button text="Register" type="submit" />
+        </form>
+      </section>
     </>
   );
 };
