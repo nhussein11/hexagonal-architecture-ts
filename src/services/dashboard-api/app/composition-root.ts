@@ -44,27 +44,3 @@ export const TRPCCompose = () => {
 };
 
 export const { appRouter } = TRPCCompose();
-
-export const localTRPCCompose = () => {
-  // DRIVENS
-  const controlAuthenticatorStub = new ControlAuthenticatorStub();
-  const repoQuerierStub = new RepoQuerierStub();
-
-  // APP
-  const dashboardApiMock = new DashboardApi(
-    controlAuthenticatorStub,
-    repoQuerierStub
-  );
-
-  // TRPC INSTANCE
-  const t = initTRPC.create();
-
-  // TRPC DRIVER
-  const authTRPCAdapterRouter = authTRPCAdapter(dashboardApiMock, t);
-
-  const appRouter = t.mergeRouters(authTRPCAdapterRouter);
-
-  return { appRouter };
-};
-
-// export const { appRouter } = localTRPCCompose();
