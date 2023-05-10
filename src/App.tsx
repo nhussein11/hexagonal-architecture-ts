@@ -1,17 +1,22 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import { Home, Login, Register } from "./components";
 
-function App() {
+const App = () => {
   return (
     <>
       <h1>App</h1>
       <div className="App">
-        <Register />
-        <Login />
+        <div className="flex justify-center m-5 gap-3">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </div>
       </div>
     </>
   );
-}
+};
 
 export default App;
