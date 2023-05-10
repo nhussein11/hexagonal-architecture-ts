@@ -4,7 +4,10 @@ import { useState } from "react";
 import { TRPCCompose } from "./services/dashboard-api/app/composition-root";
 import { TRPC_ENDPOINT } from "./vite-env.d";
 
+// TODO: fix this
 const { appRouter } = TRPCCompose();
+console.log("appRouter", appRouter);
+
 export const trpc = createTRPCReact<typeof appRouter>();
 export const trpcClient = trpc.createClient({
   links: [httpLink({ url: TRPC_ENDPOINT })],
@@ -18,7 +21,6 @@ type TRPCProviderProps = {
 
 const TRPCProvider = ({ children }: TRPCProviderProps) => {
   const [trpcClientInstance] = useState(() => trpcClient);
-
   return (
     <trpc.Provider client={trpcClientInstance} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
