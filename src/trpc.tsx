@@ -2,7 +2,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createTRPCReact, httpLink } from "@trpc/react-query";
 import { useState } from "react";
 import { appRouter } from "./services/dashboard-api/app/composition-root";
-
 import { TRPC_ENDPOINT } from "./vite-env.d";
 
 export const trpc = createTRPCReact<typeof appRouter>();

@@ -1,9 +1,7 @@
 import { initTRPC } from "@trpc/server";
 import { ControlAuthenticatorStub } from "../adapters/drivens/control-authenticator-stub-adapter";
 import { RepoQuerierStub } from "../adapters/drivens/repo-querier-stub-adapter";
-import {
-    AuthTRPCAdapter,
-} from "../adapters/drivers/auth-trpc-adapter";
+import { AuthTRPCAdapter } from "../adapters/drivers/auth-trpc-adapter";
 import { AuthenticatorProxyAdapter } from "../adapters/drivers/authenticator-proxy";
 import { DashboardApi } from "./dashboard-api";
 
@@ -40,3 +38,5 @@ export const TRPCCompose = () => {
 
   return { appRouter };
 };
+
+export const { appRouter } = TRPCCompose();
