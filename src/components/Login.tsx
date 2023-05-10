@@ -1,8 +1,6 @@
 import { useForm } from "react-hook-form";
 import { trpc } from "../trpc";
-import Button from "./ui/Button";
-import Input from "./ui/Input";
-import { useRef } from "react";
+import { Button, Input } from "./ui";
 
 type LoginForm = {
   email: string;
