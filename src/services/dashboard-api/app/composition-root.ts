@@ -3,7 +3,11 @@ import { ControlAuthenticatorStub } from "../adapters/drivens/control-authentica
 import { RepoQuerierStub } from "../adapters/drivens/repo-querier-stub-adapter";
 import { AuthenticatorProxyAdapter } from "../adapters/drivers/authenticator-proxy";
 import { DashboardApi } from "./dashboard-api";
-import { AuthTRPCAdapter } from "../adapters/drivers/auth-trpc-adapter";
+import {
+  AuthTRPCAdapter,
+  // AuthTRPCAdapter,
+  authTRPCAdapter,
+} from "../adapters/drivers/auth-trpc-adapter";
 
 const setup = () => {
   const controlAuthenticatorStub = new ControlAuthenticatorStub();
@@ -38,3 +42,29 @@ export const TRPCCompose = () => {
 
   return { appRouter };
 };
+
+export const { appRouter } = TRPCCompose();
+
+export const localTRPCCompose = () => {
+  // DRIVENS
+  const controlAuthenticatorStub = new ControlAuthenticatorStub();
+  const repoQuerierStub = new RepoQuerierStub();
+
+  // APP
+  const dashboardApiMock = new DashboardApi(
+    controlAuthenticatorStub,
+    repoQuerierStub
+  );
+
+  // TRPC INSTANCE
+  const t = initTRPC.create();
+
+  // TRPC DRIVER
+  const authTRPCAdapterRouter = authTRPCAdapter(dashboardApiMock, t);
+
+  const appRouter = t.mergeRouters(authTRPCAdapterRouter);
+
+  return { appRouter };
+};
+
+// export const { appRouter } = localTRPCCompose();
