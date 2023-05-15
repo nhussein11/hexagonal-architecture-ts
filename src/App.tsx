@@ -6,7 +6,7 @@ const App = () => {
   return (
     <>
       <h1>App</h1>
-      <div className="App">
+      <div>
         <div className="flex justify-center m-5 gap-3">
           <Routes>
             <Route path="/" element={<Home />} />
