@@ -11,7 +11,6 @@ export class DashboardApi implements ForAuthenticating {
     private readonly repoQuerier: ForRepositoryQuerying
   ) {}
   async login(email: string, password: string): Promise<AuthenticatedUser> {
-    console.log("LOGIN FROM REACT:", email, password);
     const user: ExternalUser = await this.repoQuerier.getUser(email, password);
 
     const authenticationDetails: AuthenticationDetails =

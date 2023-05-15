@@ -18,8 +18,8 @@ const Register = () => {
 
   return (
     <>
-      <section className="text-gray-600 body-font">
-        <h2 className="text-2xl text-center">Register</h2>
+      <section className="body-font">
+        <h2 className="font-mono font-bold text-3xl text-center">Register</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           {JSON.stringify(data)}
           <Input<RegisterForm>

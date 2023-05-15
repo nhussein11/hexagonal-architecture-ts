@@ -6,20 +6,21 @@ const Home = () => {
 
   return (
     <>
-      <div className="flex justify-center m-5 gap-3">
-        <div className="flex flex-col gap-3">
+      <section className="body-font">
+        <h2 className="font-mono font-bold text-3xl text-center">Home</h2>
+        <div className="container py-8 px-5 m-auto flex flex-col">
           <Button
             text="Login"
-            type="button"
             onClick={() => navigate("/login")}
+            type="button"
           />
           <Button
             text="Register"
-            type="button"
             onClick={() => navigate("/register")}
+            type="button"
           />
         </div>
-      </div>
+      </section>
     </>
   );
 };

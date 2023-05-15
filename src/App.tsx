@@ -5,7 +5,6 @@ import { Home, Login, Register } from "./components";
 const App = () => {
   return (
     <>
-      <h1>App</h1>
       <div>
         <div className="flex justify-center m-5 gap-3">
           <Routes>
