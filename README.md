@@ -57,6 +57,9 @@ Throught the project, I also wrote some unit tests to check the funcionality of 
 
 In addition, I also coded the client side of the application, which is a simple React application that consumes the services exposed by the Dashboard API. You can take a look at it, however it is nothing spectacular, the idea is to show how to connect the server to client (in this specific case though tRPC) and consume or send data from both sides.
 
+![image](https://github.com/nhussein11/hexagonal-architecture-ts/assets/80422357/249f22f7-f635-452b-9541-2e7f9660874d)
+
+
 # Stack used
 
 - [TypeScript](https://www.typescriptlang.org/)
