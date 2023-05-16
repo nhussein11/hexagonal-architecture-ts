@@ -83,9 +83,9 @@ Once you have Node.js installed, you can run the following commands:
 
 - [Hexagonal Architecture, there are always two sides to every story] (<https://medium.com/ssense-tech/hexagonal-architecture-there-are-always-two-sides-to-every-story-bc0780ed7d9c>)
 - [Hexagonal Architecture](<https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)>)
-- [#HEXAGONAL #ARCHITECTURE , qué es y qué diferencias tiene contra #CLEAN #ARCHITECTURE ? - PT 1 ] (<https://www.youtube.com/watch?v=NOWU4K6piwo&list=PL42UNLc8e48TF9l07z_tLGHzmC_d-yfJJ&index=8&ab_channel=GentlemanProgramming>) (This was the main inspiration)
+- [#HEXAGONAL #ARCHITECTURE , qué es y qué diferencias tiene contra #CLEAN #ARCHITECTURE ? - PT 1] (<https://www.youtube.com/watch?v=NOWU4K6piwo&list=PL42UNLc8e48TF9l07z_tLGHzmC_d-yfJJ&index=8&ab_channel=GentlemanProgramming>) (This was the main inspiration)
 - [The Clean Architecture] (<https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html>)
-- [Hexagonal Architecture: What You Need To Know - Simple Explanation ] (<https://www.youtube.com/watch?v=bDWApqAUjEI&ab_channel=AlexHyett>)
+- [Hexagonal Architecture: What You Need To Know - Simple Explanation] (<https://www.youtube.com/watch?v=bDWApqAUjEI&ab_channel=AlexHyett>)
 - [Hexagonal architecture: What is it and why should you use it?] (<https://cardoai.com/what-is-hexagonal-architecture-should-you-use-it/>)
 
 # Contributing
