@@ -12,6 +12,9 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.0",
     "@tanstack/react-query": "^4.29.5",
     "@trpc/client": "^10.23.0",
     "@trpc/react-query": "^10.23.0",
