@@ -1,4 +1,4 @@
-name: Vite Test
+name: Unit Tests
 
 on:
   push:
