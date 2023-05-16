@@ -53,6 +53,10 @@ The Repository is the adapter of the application and is responsible for communic
 
 **_ Disclaimer: This project intends to be a simple example of how to implement a Hexagon in TypeScript. In many parts of the code, you will see 'Mocks' or simplifications regarding the actual implementation. _**
 
+Throught the project, I also wrote some unit tests to check the funcionality of the main components in the application.
+
+In addition, I also coded the client side of the application, which is a simple React application that consumes the services exposed by the Dashboard API. You can take a look at it, however it is nothing spectacular, the idea is to show how to connect the server to client (in this specific case though tRPC) and consume or send data from both sides.
+
 # Stack used
 
 - [TypeScript](https://www.typescriptlang.org/)
