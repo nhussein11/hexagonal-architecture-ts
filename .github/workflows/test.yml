@@ -3,7 +3,7 @@ name: Vite Test
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   test:
