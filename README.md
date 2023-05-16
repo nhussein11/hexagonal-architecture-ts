@@ -39,9 +39,9 @@ The use of these three components - Core Domain, Ports, and Adapters - helps to 
 
 The current project aims to implement a simple Hexagonal Architecture in TypeScript. You can take a look at it in the 'src/services' folder, which is divided into three main folders:
 
-    Dashboard API
-    Control Plane
-    Repository
+- Dashboard API
+- Control Plane
+- Repository
 
 Each of them represents a Hexagon of the architecture.
 
@@ -51,7 +51,7 @@ The Control Plane is responsible for handling the authentication and authorizati
 
 The Repository is the adapter of the application and is responsible for communicating with the database. In this hexagon, it handles the business logic pertaining to the database, including the connection, queries, etc.
 
-**_ Disclaimer: This project intends to be a simple example of how to implement a Hexagon in TypeScript. In many parts of the code, you will see 'Mocks' or simplifications regarding the actual implementation. _**
+***_Disclaimer: This project intends to be a simple example of how to implement a Hexagon in TypeScript. In many parts of the code, you will see 'Mocks' or simplifications regarding the actual implementation._***
 
 Throught the project, I also wrote some unit tests to check the funcionality of the main components in the application.
 
@@ -81,12 +81,12 @@ Once you have Node.js installed, you can run the following commands:
 
 # References
 
-- [Hexagonal Architecture, there are always two sides to every story] (<https://medium.com/ssense-tech/hexagonal-architecture-there-are-always-two-sides-to-every-story-bc0780ed7d9c>)
+- [Hexagonal Architecture, there are always two sides to every story](<https://medium.com/ssense-tech/hexagonal-architecture-there-are-always-two-sides-to-every-story-bc0780ed7d9c>)
 - [Hexagonal Architecture](<https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)>)
-- [#HEXAGONAL #ARCHITECTURE , qué es y qué diferencias tiene contra #CLEAN #ARCHITECTURE ? - PT 1] (<https://www.youtube.com/watch?v=NOWU4K6piwo&list=PL42UNLc8e48TF9l07z_tLGHzmC_d-yfJJ&index=8&ab_channel=GentlemanProgramming>) (This was the main inspiration)
-- [The Clean Architecture] (<https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html>)
-- [Hexagonal Architecture: What You Need To Know - Simple Explanation] (<https://www.youtube.com/watch?v=bDWApqAUjEI&ab_channel=AlexHyett>)
-- [Hexagonal architecture: What is it and why should you use it?] (<https://cardoai.com/what-is-hexagonal-architecture-should-you-use-it/>)
+- [#HEXAGONAL #ARCHITECTURE , qué es y qué diferencias tiene contra #CLEAN #ARCHITECTURE ? - PT 1](<https://www.youtube.com/watch?v=NOWU4K6piwo&list=PL42UNLc8e48TF9l07z_tLGHzmC_d-yfJJ&index=8&ab_channel=GentlemanProgramming>) (This was the main inspiration, if you speak spanish I highly recommend to wacth the entire playlist)
+- [The Clean Architecture](<https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html>)
+- [Hexagonal Architecture: What You Need To Know - Simple Explanation](<https://www.youtube.com/watch?v=bDWApqAUjEI&ab_channel=AlexHyett>)
+- [Hexagonal architecture: What is it and why should you use it?](<https://cardoai.com/what-is-hexagonal-architecture-should-you-use-it/>)
 
 # Contributing
 
